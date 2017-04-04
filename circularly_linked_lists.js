@@ -23,7 +23,7 @@ class LinkedList {
   }
   _findPrevious(value){
     let currNode = this.head;
-    while(!(currNode.next == null) && (currNode.next !== value)){
+    while(!(currNode.next == null)){
       currNode = currNode.next;
     }
     return currNode;
@@ -43,7 +43,7 @@ class LinkedList {
   }
   display(){
     let current = this.head;
-    while(!(current.next == head)){
+    while(!(current.next == null) && (currNode.next.value !== value)){
       console.log(current.next.value);
       current = current.next;
     }
