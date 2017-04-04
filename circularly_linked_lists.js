@@ -13,6 +13,7 @@ class Node {
 class LinkedList {
   constructor(){
     this.head = new Node("head");
+    this.head.next = head;
   }
   _find(value){
     let currNode = this.head;
