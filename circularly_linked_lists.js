@@ -4,7 +4,6 @@ class Node {
   constructor(value){
     this.value = value;
     this.next = null;
-    this.previous = null;
   }
 }
 
@@ -22,30 +21,24 @@ class LinkedList {
     }
     return currNode;
   }
-  _findLast(){
+  _findPrevious(value){
     let currNode = this.head;
-    while(!(currNode.next === null)){
-      currentNode = this.next;
+    while(!(currNode.next == null) && (currNode.next !== value)){
+      currNode = currNode.next;
     }
     return currNode;
   }
-
   insert(value, location){
     const newNode = new Node("value");
     let currNode = this._find(location);
     currNode.next = newNode.value;
     newNode.next = currNode.next;
-    newNode.previous = currNode;
   }
   remove(value){
     const nodeToDelete = this._find(value)
+    const prevNode = this._findPrevious(value);
     while(nodeToDelete.next !== null){
-      nodeToDelete.previous.next = nodeToDelete.next;
-      nodeToDelete.next.previous = nodeToDelete.previous;
-      nodeToDelete.next = null;
-      nodeToDelete.previous = null;
-    }
-    nextNode.previous = prevNode;
+      prevNode.next = nodeToDelete.next;
     }
   }
   display(){
@@ -53,13 +46,6 @@ class LinkedList {
     while(!(current.next == null)){
       console.log(current.next.value);
       current = current.next;
-    }
-  }
-  dispReverse(){
-    let current = this._findLast();
-    while(!(current.previous === head)){
-      console.log(current.value);
-      current = current.previous;
     }
   }
 }
