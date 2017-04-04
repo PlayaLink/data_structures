@@ -37,9 +37,13 @@ class LinkedList {
   }
   remove(value){
     const nodeToDelete = this._find(value)
-    const prevNode = this._findPrevious(value);
     while(nodeToDelete.next !== null){
-      prevNode.next = nodeToDelete.next;
+      nodeToDelete.previous.next = nodeToDelete.next;
+      nodeToDelete.next.previous = nodeToDelete.previous;
+      nodeToDelete.next = null;
+      nodeToDelete.previous = null;
+    }
+    nextNode.previous = prevNode;
     }
   }
   display(){
