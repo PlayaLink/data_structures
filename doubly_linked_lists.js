@@ -21,13 +21,6 @@ class LinkedList {
     }
     return currNode;
   }
-  _findPrevious(value){
-    let currNode = this.head;
-    while(!(currNode.next == null) && (currNode.next !== value)){
-      currNode = currNode.next;
-    }
-    return currNode;
-  }
   _findLast(){
     let currNode = this.head;
     while(!(currNode.next === null)){
@@ -59,6 +52,13 @@ class LinkedList {
     while(!(current.next == null)){
       console.log(current.next.value);
       current = current.next;
+    }
+  }
+  dispReverse(){
+    let current = this._findLast();
+    while(!(current.previous === head)){
+      console.log(current.value);
+      current = current.previous;
     }
   }
 }
