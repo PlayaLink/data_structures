@@ -29,7 +29,11 @@ class LinkedList {
   remove(value){
 
   }
-  display(value){
-
+  display(){
+    let current = this.head;
+    while(!(current.next == null)){
+      console.log(current.next.value);
+      current = current.next;
+    }
   }
 }
