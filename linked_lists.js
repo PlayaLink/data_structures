@@ -14,20 +14,31 @@ class LinkedList {
     this.head = new Node("head");
   }
   _find(value){
-    let currentNode = this.head;
-    while(currentNode.value !== value){
-      currentNode = this.next;
+    let currNode = this.head;
+    while(currNode.value !== value){
+      currNode = this.next;
     }
-    return currentNode;
+    return currNode;
+  }
+  _findPrevious(value){
+    let currNode = this.head;
+    while(!(currNode.next == null) && (currNode.next !== value)){
+      currNode = currNode.next;
+    }
+    return currNode;
   }
   insert(value, location){
     const newNode = new Node("value");
-    let current = this._find(location);
-    current.next = newNode.value;
-    newNode.next = current.next;
+    let currNode = this._find(location);
+    currNode.next = newNode.value;
+    newNode.next = currNode.next;
   }
   remove(value){
-
+    const nodeToDelete = this._find(value)
+    const prevNode = this._findPrevious(value);
+    while(nodeToDelete.next !== null){
+      prevNode.next = nodeToDelete.next;
+    }
   }
   display(){
     let current = this.head;
