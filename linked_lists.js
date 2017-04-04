@@ -20,8 +20,11 @@ class LinkedList {
     }
     return currentNode;
   }
-  insert(value){
-
+  insert(value, location){
+    const newNode = new Node("value");
+    let current = this._find(location);
+    current.next = newNode.value;
+    newNode.next = current.next;
   }
   remove(value){
 
