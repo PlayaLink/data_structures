@@ -28,6 +28,14 @@ class LinkedList {
     }
     return currNode;
   }
+  _findLast(){
+    let currNode = this.head;
+    while(!(currNode.next === null)){
+      currentNode = this.next;
+    }
+    return currNode;
+  }
+
   insert(value, location){
     const newNode = new Node("value");
     let currNode = this._find(location);
