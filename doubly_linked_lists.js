@@ -4,6 +4,7 @@ class Node {
   constructor(value){
     this.value = value;
     this.next = null;
+    this.previous = null;
   }
 }
 
@@ -32,6 +33,7 @@ class LinkedList {
     let currNode = this._find(location);
     currNode.next = newNode.value;
     newNode.next = currNode.next;
+    newNode.previous = currNode;
   }
   remove(value){
     const nodeToDelete = this._find(value)
