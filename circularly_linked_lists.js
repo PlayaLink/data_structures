@@ -43,7 +43,7 @@ class LinkedList {
   }
   display(){
     let current = this.head;
-    while(!(current.next == null)){
+    while(!(current.next == head)){
       console.log(current.next.value);
       current = current.next;
     }
